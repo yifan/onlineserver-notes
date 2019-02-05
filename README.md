@@ -19,30 +19,34 @@ This is used to prune lattice after decoding, for online decoding it doesn't rea
 
 
 For endpoint detection:
-  /// We support four rules.  We terminate decoding if ANY of these rules
-  /// evaluates to "true". If you want to add more rules, do it by changing this
-  /// code.  If you want to disable a rule, you can set the silence-timeout for
-  /// that rule to a very large number.
 
-  /// rule1 times out after 5 seconds of silence, even if we decoded nothing.
-  OnlineEndpointRule rule1;
-  /// rule2 times out after 0.5 seconds of silence if we reached the final-state
-  /// with good probability (relative_cost < 2.0) after decoding something.
-  OnlineEndpointRule rule2;
-  /// rule3 times out after 1.0 seconds of silence if we reached the final-state
-  /// with OK probability (relative_cost < 8.0) after decoding something
-  OnlineEndpointRule rule3;
-  /// rule4 times out after 2.0 seconds of silence after decoding something,
-  /// even if we did not reach a final-state at all.
-  OnlineEndpointRule rule4;
-  /// rule5 times out after the utterance is 20 seconds long, regardless of
-  /// anything else.
-  OnlineEndpointRule rule5;
+    /// We support four rules.  We terminate decoding if ANY of these rules
+    /// evaluates to "true". If you want to add more rules, do it by changing this
+    /// code.  If you want to disable a rule, you can set the silence-timeout for
+    /// that rule to a very large number.
+
+    /// rule1 times out after 5 seconds of silence, even if we decoded nothing.
+    OnlineEndpointRule rule1;
+    /// rule2 times out after 0.5 seconds of silence if we reached the final-state
+    /// with good probability (relative_cost < 2.0) after decoding something.
+    OnlineEndpointRule rule2;
+    /// rule3 times out after 1.0 seconds of silence if we reached the final-state
+    /// with OK probability (relative_cost < 8.0) after decoding something
+    OnlineEndpointRule rule3;
+    /// rule4 times out after 2.0 seconds of silence after decoding something,
+    /// even if we did not reach a final-state at all.
+    OnlineEndpointRule rule4;
+    /// rule5 times out after the utterance is 20 seconds long, regardless of
+    /// anything else.
+    OnlineEndpointRule rule5;
 
 
   endpoint.rule1.min-utterance-length : 5
+  
   endpoint.rule2.min-utterance-length : 15
+  
   endpoint.rule3.min-utterance-length : 15
+  
   #endpoint.rule4.min-utterance-length : 5
 
 
